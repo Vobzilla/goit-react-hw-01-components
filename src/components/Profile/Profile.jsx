@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
-import user from '../user.json';
+import user from '../../data/user.json';
+import { ProfileCard } from './Profile.styled';
 
 const Profile = ({ username, tag, location, avatar }) => {
   return (
-    <div className="profile">
+    <ProfileCard>
       <div className="description">
         <img
           src={avatar}
           alt="User avatar"
           className="avatar"
-          width={'100px'}
+          width={'150px'}
         />
         <p className="name">{username}</p>
         <p className="tag">{tag}</p>
@@ -30,16 +31,16 @@ const Profile = ({ username, tag, location, avatar }) => {
           <span className="quantity">{user.stats.likes}</span>
         </li>
       </ul>
-    </div>
+    </ProfileCard>
   );
 };
 
 Profile.propTypes = {
-  avatar: PropTypes.string,
-  username: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  stats: PropTypes.object,
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.object.isRequired,
 };
 
 export default Profile;
