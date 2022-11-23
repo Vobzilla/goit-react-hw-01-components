@@ -1,36 +1,39 @@
 import PropTypes from 'prop-types';
-import user from '../../data/data.json';
+import {
+  SectionStatistic,
+  StatList,
+  Title,
+  StatItem,
+  StatLabel,
+  StatPercentage,
+} from './Statistics.styled';
 
-const Statistics = ({ id, label, percentage }) => {
+const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      <h2 className="title">Upload stats</h2>
+    <SectionStatistic>
+      {title && <Title>{title}</Title>}
 
-      <ul className="stat-list">
-        <li className="item">
-          <span className="label">.docx</span>
-          <span className="percentage">4%</span>
-        </li>
-        <li className="item">
-          <span className="label">.mp3</span>
-          <span className="percentage">14%</span>
-        </li>
-        <li className="item">
-          <span className="label">.pdf</span>
-          <span className="percentage">41%</span>
-        </li>
-        <li className="item">
-          <span className="label">.mp4</span>
-          <span className="percentage">12%</span>
-        </li>
-      </ul>
-    </section>
+      <StatList>
+        {stats.map(({ id, label, percentage }) => (
+          <StatItem key={id}>
+            <StatLabel>{label}</StatLabel>
+            <StatPercentage>{percentage}%</StatPercentage>
+          </StatItem>
+        ))}
+      </StatList>
+    </SectionStatistic>
   );
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
-  stats: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Statistics;
