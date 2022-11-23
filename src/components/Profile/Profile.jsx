@@ -1,36 +1,42 @@
 import PropTypes from 'prop-types';
 import user from '../../data/user.json';
-import { ProfileCard } from './Profile.styled';
+import {
+  NameUser,
+  ProfileCard,
+  ProfileDescription,
+  ProfileImg,
+  Tag,
+  Location,
+  StatsList,
+  StatsItem,
+  StatsLabel,
+  StatsQuantity,
+} from './Profile.styled';
 
 const Profile = ({ username, tag, location, avatar }) => {
   return (
     <ProfileCard>
-      <div className="description">
-        <img
-          src={avatar}
-          alt="User avatar"
-          className="avatar"
-          width={'150px'}
-        />
-        <p className="name">{username}</p>
-        <p className="tag">{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+      <ProfileDescription>
+        <ProfileImg src={avatar} alt="User avatar" width={'150px'} />
+        <NameUser>{username}</NameUser>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
+      </ProfileDescription>
 
-      <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="quantity">{user.stats.followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="quantity">{user.stats.views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="quantity">{user.stats.likes}</span>
-        </li>
-      </ul>
+      <StatsList>
+        <StatsItem>
+          <StatsLabel>Followers</StatsLabel>
+          <StatsQuantity>{user.stats.followers}</StatsQuantity>
+        </StatsItem>
+        <StatsItem>
+          <StatsLabel>Views</StatsLabel>
+          <StatsQuantity>{user.stats.views}</StatsQuantity>
+        </StatsItem>
+        <StatsItem>
+          <StatsLabel>Likes</StatsLabel>
+          <StatsQuantity>{user.stats.likes}</StatsQuantity>
+        </StatsItem>
+      </StatsList>
     </ProfileCard>
   );
 };

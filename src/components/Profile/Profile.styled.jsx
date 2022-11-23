@@ -13,3 +13,54 @@ export const ProfileCard = styled.div`
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: ${p => p.theme.radii.normal};
 `;
+
+export const ProfileDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${p => p.theme.space[3]}px;
+`;
+
+export const ProfileImg = styled.img`
+  border-radius: ${p => p.theme.radii.round};
+  overflow: hidden;
+`;
+
+export const NameUser = styled.p`
+  font-weight: ${p => p.theme.fontWeights.bold};\
+ 
+`;
+
+export const Tag = styled.p`
+  color: ${p => p.theme.colors.secondaryText};
+  font-size: ${p => p.theme.fontSizes.m};
+`;
+
+export const Location = styled.p`
+  color: ${p => p.theme.colors.secondaryText};
+  font-size: ${p => p.theme.fontSizes.m};
+`;
+
+export const StatsList = styled.ul`
+  display: flex;
+  aling-items: center;
+  gap: ${p => p.theme.space[5]}px;
+  padding: ${p => p.theme.space[4]}px;
+  border-top: ${p => p.theme.borders.normal};
+`;
+
+export const StatsItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${p => p.theme.space[3]}px;
+`;
+
+export const StatsLabel = styled.span`
+  color: ${p => p.theme.colors.secondaryText};
+`;
+
+export const StatsQuantity = styled.span`
+  font-weight: ${p => p.theme.fontWeights.bold};
+`;
