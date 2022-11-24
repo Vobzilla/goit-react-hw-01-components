@@ -1,3 +1,5 @@
+import { AppContainer } from './App.styled';
+
 import Profile from './Profile/Profile';
 import user from '../data/user.json';
 import Statistics from './Statistics/Statistics';
@@ -7,7 +9,7 @@ import friends from '../data/friends.json';
 
 export const App = () => {
   return (
-    <>
+    <AppContainer>
       <Profile
         avatar={user.avatar}
         username={user.username}
@@ -17,6 +19,6 @@ export const App = () => {
       />
       <Statistics title="Upload stats" stats={data} />
       <FriendsList friends={friends} />
-    </>
+    </AppContainer>
   );
 };

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Item = styled.li`
   display: flex;
   align-items: center;
+  min-width: 300px;
   gap: ${p => p.theme.space[5]}px;
   padding: ${p => p.theme.space[5]}px;
   background-color: ${p => p.theme.colors.white};
