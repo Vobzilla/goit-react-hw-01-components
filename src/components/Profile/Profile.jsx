@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import user from '../../data/user.json';
 import {
   NameUser,
   ProfileCard,
@@ -13,7 +12,7 @@ import {
   StatsQuantity,
 } from './Profile.styled';
 
-const Profile = ({ username, tag, location, avatar }) => {
+const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
     <ProfileCard>
       <ProfileDescription>
@@ -26,15 +25,15 @@ const Profile = ({ username, tag, location, avatar }) => {
       <StatsList>
         <StatsItem>
           <StatsLabel>Followers</StatsLabel>
-          <StatsQuantity>{user.stats.followers}</StatsQuantity>
+          <StatsQuantity>{stats.followers}</StatsQuantity>
         </StatsItem>
         <StatsItem>
           <StatsLabel>Views</StatsLabel>
-          <StatsQuantity>{user.stats.views}</StatsQuantity>
+          <StatsQuantity>{stats.views}</StatsQuantity>
         </StatsItem>
         <StatsItem>
           <StatsLabel>Likes</StatsLabel>
-          <StatsQuantity>{user.stats.likes}</StatsQuantity>
+          <StatsQuantity>{stats.likes}</StatsQuantity>
         </StatsItem>
       </StatsList>
     </ProfileCard>
@@ -46,7 +45,11 @@ Profile.propTypes = {
   username: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  stats: PropTypes.object.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };
 
 export default Profile;
